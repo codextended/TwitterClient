@@ -17,7 +17,16 @@ The following required functionality are completed:
 * [x] User can click a "Compose" icon in the AppBar on the top right
 * [x] User can then enter a new tweet and post this to twitter
 * [x] User is taken back to home timeline with new tweet visible in timeline
-Newly created tweet should be manually inserted into the timeline and not rely on a full refresh
+* [x] Newly created tweet should be manually inserted into the timeline and not rely on a full refresh
+* [x] User can switch between Timeline and Mention views using tabs.
+* [x] User can view their home timeline tweets.
+* [x] User can view the recent mentions of their username.
+* [x] User can navigate to view their own profile
+* [x] User can see picture, tagline, # of followers, # of following, and tweets on their profile.
+* [x] User can click on the profile image in any tweet to see another user's profile. 
+* [x] User can see a picture, tagline, # of followers, # of following of the selected user.
+* [x] Profile should include the selected user's timeline of tweets
+* [x] User can infinitely paginate any of these timelines (home, mentions, user) by scrolling to the bottom
 
 The following optional functionality are completed:
 
@@ -25,13 +34,18 @@ The following optional functionality are completed:
 * [x] Links in tweets are clickable and will launch the web browser.
 * [x] User can refresh tweets timeline by pulling down to refresh.
 * [x] User can open the twitter app offline and see last loaded tweets
-* [x] Tweets are persisted into sqlite and can be displayed from the local DB.
 * [x] User can tap a tweet to display a "detailed" view of that tweet  
 * [x] Compose activity is replaced with a modal overlay 
 * [x]  Leverage RecyclerView as a replacement for the ListView and ArrayAdapter for all lists of tweets.
 * [x] Move the "Compose" action to a FloatingActionButton instead of on the AppBar.
 * [x] On the Twitter timeline, leverage the CoordinatorLayout to apply scrolling behavior that hides / shows the toolbar.
-* [x] Replace Picasso with Glide for more efficient image rendering. 
+* [x] Replace Picasso with Glide for more efficient image rendering.
+* [x] When a network request is sent, user sees an indeterminate progress indicator 
+* [x] User can "reply" to any tweet on their home timeline 
+* [x] The user that wrote the original tweet is automatically "@" replied in compose
+* [x] User can click on a tweet to be taken to a "detail view" of that tweet
+* [x] User can take favorite (and unfavorite) or retweet actions on a tweet
+* [x] Improve the user interface and theme the app to feel "twitter branded"
 
 
 ## Video Walkthrough
