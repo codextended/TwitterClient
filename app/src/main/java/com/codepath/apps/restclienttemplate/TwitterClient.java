@@ -38,6 +38,30 @@ public class TwitterClient extends OAuthBaseClient {
 		params.put("since_id", 1);
 		client.get(apiUrl, params, handler);
 	}
+
+	public void getUserTimeline(String screenName, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("statuses/user_timeline.json");
+		// Can specify query string params directly or through RequestParams.
+		RequestParams params = new RequestParams();
+		params.put("screen_name", screenName);
+		params.put("count", 25);
+		params.put("since_id", 1);
+		client.get(apiUrl, params, handler);
+	}
+
+	public void getUserInfo(AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("account/verify_credentials.json");
+		client.get(apiUrl, null, handler);
+	}
+
+	public void getMentionsTimeline(AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("statuses/mentions_timeline.json");
+		// Can specify query string params directly or through RequestParams.
+		RequestParams params = new RequestParams();
+		params.put("count", 25);
+		params.put("since_id", 1);
+		client.get(apiUrl, params, handler);
+	}
 	public void getMoreHomeTimeline(long maxId, AsyncHttpResponseHandler handler){
 		String apiUrl = getApiUrl("statuses/home_timeline.json");
 		// Can specify query string params directly or through RequestParams.
@@ -48,9 +72,30 @@ public class TwitterClient extends OAuthBaseClient {
 		client.get(apiUrl, params, handler);
 	}
 
+	public void getMoreUserTimeline(long maxId, String screenName, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("statuses/user_timeline.json");
+		// Can specify query string params directly or through RequestParams.
+		RequestParams params = new RequestParams();
+		params.put("screen_name", screenName);
+		params.put("count", 25);
+		params.put("since_id", 1);
+		params.put("max_id", maxId);
+		client.get(apiUrl, params, handler);
+	}
+
+	public void getMoreMentionsTimeline(long maxId, AsyncHttpResponseHandler handler){
+		String apiUrl = getApiUrl("statuses/mentions_timeline.json");
+		// Can specify query string params directly or through RequestParams.
+		RequestParams params = new RequestParams();
+		params.put("count", 25);
+		params.put("since_id", 1);
+		params.put("max_id", maxId);
+		client.get(apiUrl, params, handler);
+	}
+
 	public void getUser(AsyncHttpResponseHandler handler){
 		String apiUrl = getApiUrl("account/verify_credentials.json");
-		client.get(apiUrl, handler);
+		client.get(apiUrl,handler);
 	}
 
 	public void postTweet(String message, AsyncHttpResponseHandler handler){
@@ -59,6 +104,29 @@ public class TwitterClient extends OAuthBaseClient {
 		RequestParams params = new RequestParams();
 		params.put("status", message);
 		client.post(apiUrl, params, handler);
+	}
+
+	public void retweet(long id, AsyncHttpResponseHandler handler){
+		String path = String.format("statuses/retweet/%d.json", id);
+		String apiUrl = getApiUrl(path);
+		client.post(apiUrl, handler);
+	}
+
+	public void addFavorite(long id, AsyncHttpResponseHandler handler){
+		String apiUrl = getApiUrl("favorites/create.json");
+
+		RequestParams params = new RequestParams();
+		params.put("id", id);
+		client.post(apiUrl, params, handler);
+	}
+
+	public void getSubscriptions(AsyncHttpResponseHandler handler){
+		String apiUrl = getApiUrl("lists/subscriptions.json");
+
+		RequestParams params = new RequestParams();
+		params.put("count", 25);
+
+		client.get(apiUrl, params, handler);
 	}
 
 	/* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint

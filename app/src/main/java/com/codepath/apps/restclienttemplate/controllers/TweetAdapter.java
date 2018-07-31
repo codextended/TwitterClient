@@ -1,4 +1,4 @@
-package com.codepath.apps.restclienttemplate;
+package com.codepath.apps.restclienttemplate.controllers;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,13 +12,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.codepath.apps.restclienttemplate.R;
+import com.codepath.apps.restclienttemplate.activities.ProfileActivity;
+import com.codepath.apps.restclienttemplate.activities.TweetDetailActivity;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 
@@ -63,6 +64,14 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.TweetHolder>
             @Override
             public void onClick(View v) {
                 Intent intent = TweetDetailActivity.newInstance(mContext, tweet);
+                mContext.startActivity(intent);
+            }
+        });
+
+        holder.ivProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = ProfileActivity.newIntent(mContext, tweet.user, tweet.user.screenName);
                 mContext.startActivity(intent);
             }
         });

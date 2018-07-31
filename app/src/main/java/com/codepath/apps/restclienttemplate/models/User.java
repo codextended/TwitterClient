@@ -14,6 +14,9 @@ public class User implements Serializable{
     public long uid;
     public String screenName;
     public String profileImageUrl;
+    public String tagLine;
+    public String followers;
+    public String following;
 
     public static User fromJSON(JSONObject jsonObject) throws JSONException{
         User user = new User();
@@ -21,6 +24,9 @@ public class User implements Serializable{
         user.uid = jsonObject.getLong("id");
         user.screenName = jsonObject.getString("screen_name");
         user.profileImageUrl = jsonObject.getString("profile_image_url");
+        user.tagLine = jsonObject.getString("description");
+        user.followers = jsonObject.getString("followers_count");
+        user.following = jsonObject.getString("friends_count");
         return user;
     }
 

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.codepath.apps.restclienttemplate.TweetDetailActivity">
+    tools:context="com.codepath.apps.restclienttemplate.activities.TweetDetailActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/mainToolbar"
@@ -55,16 +55,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivProfile" />
 
-    <ImageView
-        android:id="@+id/ivTweetImage"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/actionLinearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:scaleType="centerInside"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTweet"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvTweet">
+
+        <ImageView
+            android:id="@+id/ivReply"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_reply"/>
+        <ImageView
+            android:id="@+id/ivRetweet"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_retweet"/>
+        <ImageView
+            android:id="@+id/ivFavorite"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_favorite"/>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -34,10 +34,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TimelineActivity"
+            android:name=".activities.TimelineActivity"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".TweetDetailActivity"
-            android:parentActivityName=".TimelineActivity"></activity>
+        <activity
+            android:name=".activities.TweetDetailActivity"
+            android:parentActivityName=".activities.TimelineActivity" />
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:parentActivityName=".activities.TimelineActivity" />
+        <activity android:name=".activities.SubscriptionsActivity"></activity>
     </application>
 
 </manifest>
