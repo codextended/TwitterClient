@@ -52,7 +52,7 @@ The following optional functionality are completed:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/MRI46GW.gif' width="300" />
+<img src='https://i.imgur.com/ENjsgv2.gif' width="300" />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
